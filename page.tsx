@@ -1,6 +1,6 @@
 "use client";
 import {useState} from "react";
-import {profile,skillGroups,projects,internships,certifications,certificateImages,education,type Project} from "@/data/resumeData";
+import {profile,skillGroups,projects,internships,certifications,certificateImages,education,type Project} from "../data/resumeData";
 
 function Button({href,children,primary=false}:{href:string;children:React.ReactNode;primary?:boolean}){return <a className={primary?"btn primary":"btn"} href={href} target={href.startsWith("http")?"_blank":undefined} rel={href.startsWith("http")?"noreferrer":undefined}>{children}</a>}
 function ProjectCard({p,onOpen}:{p:Project;onOpen:(p:Project)=>void}){return <article className="card project" onClick={()=>onOpen(p)}><div className="projectTop"><span className="eyebrow">{p.category||"Project"}</span>{p.featured&&<span className="badge">Featured</span>}</div><h3>{p.title}</h3><p>{p.tagline}</p><div className="chips">{p.stack.slice(0,5).map(x=><span key={x}>{x}</span>)}</div><div className="projectFoot"><span>{p.period}</span><span>View details →</span></div></article>}
